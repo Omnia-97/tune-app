@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:tune_player_app/models/tune_model.dart';
 import 'package:tune_player_app/widgets/tune_item.dart';
 
 class TuneView extends StatelessWidget {
   const TuneView({super.key});
-  final List<Color> tuneColors = const [
-    Color(0xFFfe4039),
-    Color(0xFFfd982b),
-    Color(0xFFfdeb57),
-    Color(0xFF33af57),
-    Color(0xFF009587),
-    Color(0xFF0097ed),
-    Color(0xFFa227ac),
+  final List<TuneModel> tunes = const [
+    TuneModel(color: Color(0xFFfe4039) , sound: 'note1.wav'),
+    TuneModel(color: Color(0xFFfd982b) , sound: 'note2.wav'),
+    TuneModel(color: Color(0xFFfdeb57), sound: 'note3.wav'),
+    TuneModel(color: Color(0xFF33af57), sound: 'note4.wav'),
+    TuneModel(color: Color(0xFF009587), sound: 'note5.wav'),
+    TuneModel(color:  Color(0xFF0097ed), sound: 'note6.wav'),
+    TuneModel(color:  Color(0xFFa227ac), sound: 'note7.wav'),
   ];
 
   @override
@@ -28,9 +29,9 @@ class TuneView extends StatelessWidget {
         centerTitle: true,
       ),
       body: Column(
-        children: tuneColors
+        children: tunes
             .map(
-              (color) => TuneItem(color: color),
+              (e) => TuneItem(tuneModel: e,),
             )
             .toList(),
       ),
